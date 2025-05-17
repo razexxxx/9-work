@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class PasswordValidator
 {
     public static function validate(string $password): bool
@@ -20,7 +22,7 @@ class PasswordValidator
         }
 
         // Нет пробелов
-        if (strpos($password, ' ') !== false) {
+        if (str_contains($password, ' ')) {
             return false;
         }
 

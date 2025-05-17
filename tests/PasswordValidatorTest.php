@@ -1,8 +1,9 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace Tests;
 
-require_once __DIR__ . '/../PasswordValidator.php'; // Путь к твоему классу
+use PHPUnit\Framework\TestCase;
+use App\PasswordValidator;
 
 class PasswordValidatorTest extends TestCase
 {
@@ -17,23 +18,12 @@ class PasswordValidatorTest extends TestCase
     public function passwordDataProvider(): array
     {
         return [
-            // Валидные пароли
             ['ValidPass1', true],
             ['AnotherP4ss', true],
-
-            // Менее 8 символов
             ['Short1A', false],
-
-            // Нет заглавной буквы
             ['alllowercase1', false],
-
-            // Нет цифр
             ['NoDigitsHere', false],
-
-            // Есть пробел
             ['Pass Word123', false],
-            
-            // Все условия нарушены
             ['short', false],
         ];
     }
